@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 //var User = mongoose.model('User');
 var News = mongoose.model('News');
-var News = mongoose.model('User');
+var User = mongoose.model('User');
 
 // iOS APN Client
 var apn = require('apn');
@@ -84,9 +84,9 @@ module.exports = function (app) {
       errorCallback: function(error){
         console.log('push error', error);
       },
-      cert: 'PushNewsCert.pem',
-      key:  'PushNewsKey.pem',
-      passphrase: 'superpass',
+      cert: 'PushNotificationsCert.pem',
+      key:  'CordovaPushNotificationDemoKey.pem',
+      passphrase: 'abc23',
       port: 2195,
       enhanced: true,
       cacheLength: 100
@@ -101,7 +101,7 @@ module.exports = function (app) {
     var gcmObject = new gcm.AndroidGcm('AIzaSyBXWKjEbzCfAersPzodMQrhDWguB5J5O7g');
 
     var registration_ids = Array();
-    registration_ids.push(users.deviceToken);
+    registration_ids.push(user.deviceToken);
 
     var message = new gcm.Message({
         registration_ids: registration_ids,
