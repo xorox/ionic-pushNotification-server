@@ -105,7 +105,7 @@ module.exports = function (app) {
     var message = new gcm.Message({
         registration_ids: registration_ids,
         data: {
-            message: news
+            message: news.text
         }
     });
 
