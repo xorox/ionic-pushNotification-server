@@ -46,6 +46,11 @@ module.exports = function (app) {
     news.save(function (err, news) {
       if(err)
         return res.json({error: err});
+      else {
+        process.nextTick(function () {
+          sendPush(news);
+        });
+      }
 
       res.json({message: 'News '+text+' created!'});
     });
@@ -72,9 +77,9 @@ module.exports = function (app) {
             errorCallback: function(error){
               console.log('push error', error);
             },
-            cert: 'PushNewsCert.pem',
-            key:  'PushNewsKey.pem',
-            passphrase: 'superpass',
+            cert: 'PushNotificationsCert.pem',
+            key:  'CordovaPushNotificationDemoKey.pem',
+            passphrase: 'abc23',
             port: 2195,
             enhanced: true,
             cacheLength: 100
