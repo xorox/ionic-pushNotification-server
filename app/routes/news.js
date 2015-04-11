@@ -2,9 +2,10 @@
 
 var mongoose = require('mongoose');
 //var User = mongoose.model('User');
+var News = mongoose.model('News');
+var News = mongoose.model('User');
 
 // iOS APN Client
-var News = mongoose.model('News');
 var apn = require('apn');
 var _ = require('lodash');
 
