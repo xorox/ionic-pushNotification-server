@@ -66,6 +66,8 @@ module.exports = function (app) {
     });
   });
 
+  
+
   function sendPushiOS(user, news) {
     var text = news.text.substr(0, 100);
 
@@ -115,6 +117,6 @@ module.exports = function (app) {
 
       console.log(response);
     });
-          
+
   }
 };
