@@ -63,7 +63,6 @@ module.exports = function (app) {
           }
         });
       });
-      res.redirect('/add-news');
     });
   });
 
@@ -114,7 +113,8 @@ module.exports = function (app) {
       if(err)
         console.log(err+' '+response);
 
-      console.log(response);
+      console.log(response +'\n'+registration_ids);
+      console.log('\npush sent to ', user.username);
     });
 
   }
