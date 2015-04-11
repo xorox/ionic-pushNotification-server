@@ -60,6 +60,9 @@ module.exports = function (app) {
                 sendPushAndroid(users[i], news);
               }
             }
+            return json({success: true});
+          } else {
+            return json({success: false, error: err});
           }
         });
       });
