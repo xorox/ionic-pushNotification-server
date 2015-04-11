@@ -54,11 +54,11 @@ module.exports = function (app) {
           deviceRegistered: true
         }
       }).lean().exec(function(err, user) {
-        if(err || user) {
-          return res.json({error: err});
-        }
+        //if(err || user) {
+        //  return res.json({error: err});
+        //}
 
-        res.json({error: null, user: user});
+        res.json({error: err, user: user});
       });
 
     });
